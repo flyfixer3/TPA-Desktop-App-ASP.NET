@@ -1,0 +1,41 @@
+﻿<Page x:Class="Project_TPA_AN.View.SalesAndMarketingHomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project_TPA_AN.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SalesAndMarketingHomePage">
+
+    <Grid Background="#d6cbb4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center" Text="Manager Home Page"
+                   FontSize="28" Margin="40.4,10.4,54,9.4" Width="292" Grid.Column="2"/>
+        <Button Name="manageAdvertisement" Grid.Column="2" Grid.Row="2" Height="25"
+                Width="150" Margin="10,30,10,0"
+                Content="Manage Advertisement" Click="ManageAdvertisement_Click" ></Button>
+        <Button Name="fundRequest" Grid.Column="3" Grid.Row="2" Height="25"
+                Width="150" Margin="10,30,10,0"
+                Content="Fund Request" Click="FundRequest_Click" ></Button>
+        <Button Name="purchaseRequest" Grid.Column="4" Grid.Row="2" Height="25"
+                Width="150" Margin="10,30,10,0"
+                Content="Purchase Request" Click="PurchaseRequest_Click" ></Button>
+    </Grid>
+</Page>

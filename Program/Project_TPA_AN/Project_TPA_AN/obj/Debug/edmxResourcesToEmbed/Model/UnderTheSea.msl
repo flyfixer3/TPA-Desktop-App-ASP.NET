@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UnderTheSeaModelStoreContainer" CdmEntityContainer="UnderTheSeaEntities">
+    <EntitySetMapping Name="Advertisements">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Advertisement">
+        <MappingFragment StoreEntitySet="Advertisement">
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="AdvertisementStatus" ColumnName="AdvertisementStatus" />
+          <ScalarProperty Name="AdvertisementDescription" ColumnName="AdvertisementDescription" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="AdvertisementID" ColumnName="AdvertisementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attractions">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Attraction">
+        <MappingFragment StoreEntitySet="Attraction">
+          <ScalarProperty Name="AttractionStatus" ColumnName="AttractionStatus" />
+          <ScalarProperty Name="AttractionStartDate" ColumnName="AttractionStartDate" />
+          <ScalarProperty Name="AttractionParticipant" ColumnName="AttractionParticipant" />
+          <ScalarProperty Name="AttractionHowToWork" ColumnName="AttractionHowToWork" />
+          <ScalarProperty Name="AttractionDescription" ColumnName="AttractionDescription" />
+          <ScalarProperty Name="AttractionName" ColumnName="AttractionName" />
+          <ScalarProperty Name="AttractionID" ColumnName="AttractionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="EmployeeBannedStatus" ColumnName="EmployeeBannedStatus" />
+          <ScalarProperty Name="EmployeeSalary" ColumnName="EmployeeSalary" />
+          <ScalarProperty Name="EmployeeGender" ColumnName="EmployeeGender" />
+          <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+          <ScalarProperty Name="EmployeeUsername" ColumnName="EmployeeUsername" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FundRequests">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.FundRequest">
+        <MappingFragment StoreEntitySet="FundRequest">
+          <ScalarProperty Name="FundRequestedDate" ColumnName="FundRequestedDate" />
+          <ScalarProperty Name="FundStatus" ColumnName="FundStatus" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="FundReason" ColumnName="FundReason" />
+          <ScalarProperty Name="FundPrice" ColumnName="FundPrice" />
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredients">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Ingredient">
+        <MappingFragment StoreEntitySet="Ingredient">
+          <ScalarProperty Name="IngredientStatus" ColumnName="IngredientStatus" />
+          <ScalarProperty Name="IngredientStock" ColumnName="IngredientStock" />
+          <ScalarProperty Name="IngredientName" ColumnName="IngredientName" />
+          <ScalarProperty Name="IngredientID" ColumnName="IngredientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchasementReports">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.PurchasementReport">
+        <MappingFragment StoreEntitySet="PurchasementReport">
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="PurchasementDate" ColumnName="PurchasementDate" />
+          <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
+          <ScalarProperty Name="PurchasementID" ColumnName="PurchasementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseRequests">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.PurchaseRequest">
+        <MappingFragment StoreEntitySet="PurchaseRequest">
+          <ScalarProperty Name="PurchaseStatus" ColumnName="PurchaseStatus" />
+          <ScalarProperty Name="PurchaseRequestedDate" ColumnName="PurchaseRequestedDate" />
+          <ScalarProperty Name="PurchaseDescription" ColumnName="PurchaseDescription" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestAttractions">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.RequestAttraction">
+        <MappingFragment StoreEntitySet="RequestAttraction">
+          <ScalarProperty Name="AttractionStatus" ColumnName="AttractionStatus" />
+          <ScalarProperty Name="AttractionStartDate" ColumnName="AttractionStartDate" />
+          <ScalarProperty Name="AttractionParticipant" ColumnName="AttractionParticipant" />
+          <ScalarProperty Name="AttractionHowToWork" ColumnName="AttractionHowToWork" />
+          <ScalarProperty Name="AttractionDescription" ColumnName="AttractionDescription" />
+          <ScalarProperty Name="AttractionName" ColumnName="AttractionName" />
+          <ScalarProperty Name="AttractionID" ColumnName="AttractionID" />
+          <ScalarProperty Name="RequestAttractionID" ColumnName="RequestAttractionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestRides">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.RequestRide">
+        <MappingFragment StoreEntitySet="RequestRide">
+          <ScalarProperty Name="RideStatus_" ColumnName="RideStatus " />
+          <ScalarProperty Name="RideSafetyInformation" ColumnName="RideSafetyInformation" />
+          <ScalarProperty Name="RideType" ColumnName="RideType" />
+          <ScalarProperty Name="RideHowToWork" ColumnName="RideHowToWork" />
+          <ScalarProperty Name="RideDescription" ColumnName="RideDescription" />
+          <ScalarProperty Name="RideName" ColumnName="RideName" />
+          <ScalarProperty Name="RideID" ColumnName="RideID" />
+          <ScalarProperty Name="RequestRideID" ColumnName="RequestRideID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rides">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Ride">
+        <MappingFragment StoreEntitySet="Ride">
+          <ScalarProperty Name="RideStatus_" ColumnName="RideStatus " />
+          <ScalarProperty Name="RideSafetyInformation" ColumnName="RideSafetyInformation" />
+          <ScalarProperty Name="RideType" ColumnName="RideType" />
+          <ScalarProperty Name="RideHowToWork" ColumnName="RideHowToWork" />
+          <ScalarProperty Name="RideDescription" ColumnName="RideDescription" />
+          <ScalarProperty Name="RideName" ColumnName="RideName" />
+          <ScalarProperty Name="RideID" ColumnName="RideID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketTransactions">
+      <EntityTypeMapping TypeName="UnderTheSeaModel.TicketTransaction">
+        <MappingFragment StoreEntitySet="TicketTransaction">
+          <ScalarProperty Name="TransactionStauts" ColumnName="TransactionStauts" />
+          <ScalarProperty Name="TicketDate" ColumnName="TicketDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TicketTransactionID" ColumnName="TicketTransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

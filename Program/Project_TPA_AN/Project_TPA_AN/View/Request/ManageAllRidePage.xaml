@@ -1,0 +1,94 @@
+﻿<Page x:Class="Project_TPA_AN.View.Ride_Request.ManageAllRidePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project_TPA_AN.View.Ride_Request"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManageAllRidePage">
+    <Grid Background="#d6cbb4" Margin="0,0,0,-94.4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="3" Grid.RowSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" 
+                   Text="Input Id : " Margin="0,15,0,10" />
+            <TextBox x:Name="idText" Grid.Column="1" Grid.Row="1"
+                 Width="150" Margin="0,15,0,10" />
+            <Button x:Name="searchButton" Content="Search" 
+                Grid.Column="2" Grid.Row="1" Padding="2"
+                Margin="10.2,14.2,10,6.4" Click="searchRide"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="2" FontSize="15" 
+                   Text="Ride Name : " Margin="0,0,0,10" />
+            <TextBox x:Name="rideNameText" Grid.Column="1" Grid.Row="1"
+                 Width="150" Margin="0.4,45.2,60,10" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+            <TextBlock Grid.Column="0" Grid.Row="3" FontSize="15" 
+                   Text="Ride Description : " Margin="0,0,0,10" />
+            <TextBox x:Name="rideDescriptionText" Grid.Column="1" Grid.Row="3" Height="65"
+                 Width="150" Margin="0.4,0.8,60,10.2" Grid.ColumnSpan="2" />
+
+            <TextBlock Grid.Column="0" Grid.Row="4" FontSize="15" 
+                   Text="Ride Type : " Margin="0,0,0,10" />
+            <ComboBox x:Name="rideType" Text="-- Select --" 
+                  IsEditable="True" IsReadOnly="True"
+                  Grid.Column="1" Grid.Row="4" Margin="0.4,0,60,10" Grid.ColumnSpan="2">
+                <ComboBoxItem Content="Family Ride"></ComboBoxItem>
+                <ComboBoxItem Content="Water Ride"></ComboBoxItem>
+                <ComboBoxItem Content="Thrill Ride"></ComboBoxItem>
+                <ComboBoxItem Content="Childern Ride"></ComboBoxItem>
+            </ComboBox>
+            <TextBlock Grid.Column="0" Grid.Row="5" FontSize="15" 
+                   Text="Ride How To Work : " Margin="0,0,0,10" />
+            <TextBox x:Name="rideHowToWorkText" Grid.Column="1" Grid.Row="5" Height="65"
+                 Width="150" Margin="0.4,0.8,60,10.2" Grid.ColumnSpan="2" />
+
+            <TextBlock Grid.Column="0" Grid.Row="6" FontSize="15" 
+                   Text="Ride Safety Information : " Margin="0,0,0,10" />
+            <TextBox x:Name="rideSafetyInformationText" Grid.Column="1" Grid.Row="5" Height="65"
+                 Width="150" Margin="0.4,89,60,34.8" Grid.ColumnSpan="2" Grid.RowSpan="3" />
+            <Button x:Name="deleteButton" Content="Delete Ride" 
+                Grid.Column="0" Grid.Row="7" Padding="5"
+                Margin="76,46.2,105.2,-0.2" Click="deleteRide" Grid.ColumnSpan="2" />
+            <Button x:Name="updateButton" Content="Update Ride" 
+                Grid.Column="1" Grid.Row="7" Padding="5"
+                Margin="10.4,46,0.2,-0.2" Click="updateRide" />
+            <Button x:Name="RequestButton" Content="Request Ride" 
+                Grid.Column="2" Grid.Row="7" Padding="5"
+                Margin="10.8,46,0,-0.2" Click="RequestRide" />
+        </Grid>
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="30" 
+                   Text="Under The Sea" Grid.ColumnSpan="3" Margin="0,0,0,15" />
+        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="20" 
+                   Text="Manage All Ride" Grid.ColumnSpan="3" Margin="0,0,0,10"/>
+        <DataGrid x:Name="rideTable" Grid.Column="2" Grid.Row="3"  Height="200"
+                  AutoGenerateColumns="True" SelectionChanged="RideTable_SelectionChanged" />
+    </Grid>
+</Page>

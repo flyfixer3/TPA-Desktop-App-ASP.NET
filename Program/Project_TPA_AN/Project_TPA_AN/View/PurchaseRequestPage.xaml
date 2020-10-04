@@ -1,0 +1,52 @@
+﻿<Page x:Class="Project_TPA_AN.View.PurchaseRequestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Project_TPA_AN.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PurchaseRequestPage">
+
+    <Grid Background="#d6cbb4">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" 
+                       Text="Purchase Request" HorizontalAlignment="Center" 
+                       FontSize="32" Margin="0,15,0,30"></TextBlock>
+
+            <TextBlock Grid.Column="2" Grid.Row="3"
+                       Text="Purchase Desc:" HorizontalAlignment="Left" 
+                       FontSize="16" Margin="0,15,0,0"></TextBlock>
+            <TextBox  Name="purchaseDescTextt" Grid.Column="3" Grid.Row="3" 
+                  Height="100" Margin="0,15,0,30"/>
+            <TextBlock Grid.Column="1" Grid.Row="4"
+                       Text="Requested Date:" HorizontalAlignment="Left" 
+                       FontSize="16" Margin="220.4,0.6,0,14.4" Grid.ColumnSpan="2"></TextBlock>
+            <DatePicker x:Name="purchaseRequestedDate" Grid.Column="2" Grid.Row="4" Margin="139.6,4.6,0.4,5.4" Grid.ColumnSpan="2"/>
+            <Button  Name="addPurchaseRequest" Grid.Column="2" Grid.Row="5" Height="30" Width="100" Margin="119.6,0.4,120.4,0"
+                 Grid.ColumnSpan="2" Content="Add" Click="AddPurchaseRequest_Click" VerticalAlignment="Top" />
+
+        </Grid>
+    </Grid>
+</Page>

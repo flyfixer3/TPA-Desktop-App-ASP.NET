@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdd59b9ba7a042de89a2d19aa4fe247c" Name="Diagram1" ZoomLevel="64" >
+        <EntityTypeShape EntityType="UnderTheSeaModel.Advertisement" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Attraction" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Department" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Employee" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.FundRequest" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Ingredient" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.PurchasementReport" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.PurchaseRequest" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.RequestAttraction" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.RequestRide" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Ride" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Table" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.Ticket" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="UnderTheSeaModel.TicketTransaction" Width="1.5" PointX="9.75" PointY="8.75" />
+        <AssociationConnector Association="UnderTheSeaModel.FK_Advertisement_ToEmployee" />
+        <AssociationConnector Association="UnderTheSeaModel.FK__Employee__Depart__412EB0B6" />
+        <AssociationConnector Association="UnderTheSeaModel.FK__PurchaseR__Depar__6B24EA82" />
+        <AssociationConnector Association="UnderTheSeaModel.FK_FundRequest_ToDepartment" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

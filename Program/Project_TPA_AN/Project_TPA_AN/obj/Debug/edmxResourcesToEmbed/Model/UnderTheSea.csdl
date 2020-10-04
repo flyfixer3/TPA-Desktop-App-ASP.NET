@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UnderTheSeaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UnderTheSeaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Advertisements" EntityType="UnderTheSeaModel.Advertisement" />
+    <EntitySet Name="Attractions" EntityType="UnderTheSeaModel.Attraction" />
+    <EntitySet Name="Departments" EntityType="UnderTheSeaModel.Department" />
+    <EntitySet Name="Employees" EntityType="UnderTheSeaModel.Employee" />
+    <EntitySet Name="FundRequests" EntityType="UnderTheSeaModel.FundRequest" />
+    <EntitySet Name="Ingredients" EntityType="UnderTheSeaModel.Ingredient" />
+    <EntitySet Name="PurchasementReports" EntityType="UnderTheSeaModel.PurchasementReport" />
+    <EntitySet Name="PurchaseRequests" EntityType="UnderTheSeaModel.PurchaseRequest" />
+    <EntitySet Name="RequestAttractions" EntityType="UnderTheSeaModel.RequestAttraction" />
+    <EntitySet Name="RequestRides" EntityType="UnderTheSeaModel.RequestRide" />
+    <EntitySet Name="Rides" EntityType="UnderTheSeaModel.Ride" />
+    <EntitySet Name="Tables" EntityType="UnderTheSeaModel.Table" />
+    <EntitySet Name="Tickets" EntityType="UnderTheSeaModel.Ticket" />
+    <EntitySet Name="TicketTransactions" EntityType="UnderTheSeaModel.TicketTransaction" />
+    <AssociationSet Name="FK_Advertisement_ToEmployee" Association="UnderTheSeaModel.FK_Advertisement_ToEmployee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Advertisement" EntitySet="Advertisements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Depart__412EB0B6" Association="UnderTheSeaModel.FK__Employee__Depart__412EB0B6">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PurchaseR__Depar__6B24EA82" Association="UnderTheSeaModel.FK__PurchaseR__Depar__6B24EA82">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="PurchaseRequest" EntitySet="PurchaseRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FundRequest_ToDepartment" Association="UnderTheSeaModel.FK_FundRequest_ToDepartment">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="FundRequest" EntitySet="FundRequests" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementID" />
+    </Key>
+    <Property Name="AdvertisementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="AdvertisementDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AdvertisementStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Employee" Relationship="UnderTheSeaModel.FK_Advertisement_ToEmployee" FromRole="Advertisement" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Attraction">
+    <Key>
+      <PropertyRef Name="AttractionID" />
+    </Key>
+    <Property Name="AttractionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttractionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionHowToWork" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionParticipant" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AttractionStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="UnderTheSeaModel.FK__Employee__Depart__412EB0B6" FromRole="Department" ToRole="Employee" />
+    <NavigationProperty Name="PurchaseRequests" Relationship="UnderTheSeaModel.FK__PurchaseR__Depar__6B24EA82" FromRole="Department" ToRole="PurchaseRequest" />
+    <NavigationProperty Name="FundRequests" Relationship="UnderTheSeaModel.FK_FundRequest_ToDepartment" FromRole="Department" ToRole="FundRequest" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeUsername" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeePassword" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeGender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeSalary" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeBannedStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Advertisements" Relationship="UnderTheSeaModel.FK_Advertisement_ToEmployee" FromRole="Employee" ToRole="Advertisement" />
+    <NavigationProperty Name="Department" Relationship="UnderTheSeaModel.FK__Employee__Depart__412EB0B6" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="FundRequest">
+    <Key>
+      <PropertyRef Name="FundId" />
+    </Key>
+    <Property Name="FundId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FundPrice" Type="Int32" Nullable="false" />
+    <Property Name="FundReason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="FundStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FundRequestedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Department" Relationship="UnderTheSeaModel.FK_FundRequest_ToDepartment" FromRole="FundRequest" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="IngredientID" />
+    </Key>
+    <Property Name="IngredientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IngredientName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IngredientStock" Type="Int32" Nullable="false" />
+    <Property Name="IngredientStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PurchasementReport">
+    <Key>
+      <PropertyRef Name="PurchasementID" />
+    </Key>
+    <Property Name="PurchasementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuyerName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PurchasementDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PurchasePrice" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseRequest">
+    <Key>
+      <PropertyRef Name="PurchaseID" />
+    </Key>
+    <Property Name="PurchaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PurchaseRequestedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PurchaseStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Department" Relationship="UnderTheSeaModel.FK__PurchaseR__Depar__6B24EA82" FromRole="PurchaseRequest" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="RequestAttraction">
+    <Key>
+      <PropertyRef Name="RequestAttractionID" />
+    </Key>
+    <Property Name="RequestAttractionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttractionID" Type="Int32" />
+    <Property Name="AttractionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionHowToWork" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionParticipant" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AttractionStartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AttractionStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RequestRide">
+    <Key>
+      <PropertyRef Name="RequestRideID" />
+    </Key>
+    <Property Name="RequestRideID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RideID" Type="Int32" />
+    <Property Name="RideName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RideDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RideHowToWork" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RideType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RideSafetyInformation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RideStatus_" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Ride">
+    <Key>
+      <PropertyRef Name="RideID" />
+    </Key>
+    <Property Name="RideID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RideName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RideDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RideHowToWork" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RideType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RideSafetyInformation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RideStatus_" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketID" />
+    </Key>
+    <Property Name="TicketID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TicketTransaction">
+    <Key>
+      <PropertyRef Name="TicketTransactionID" />
+    </Key>
+    <Property Name="TicketTransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="TicketDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TransactionStauts" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Advertisement_ToEmployee">
+    <End Type="UnderTheSeaModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="UnderTheSeaModel.Advertisement" Role="Advertisement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Advertisement">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Depart__412EB0B6">
+    <End Type="UnderTheSeaModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="UnderTheSeaModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PurchaseR__Depar__6B24EA82">
+    <End Type="UnderTheSeaModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="UnderTheSeaModel.PurchaseRequest" Role="PurchaseRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="PurchaseRequest">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FundRequest_ToDepartment">
+    <End Type="UnderTheSeaModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="UnderTheSeaModel.FundRequest" Role="FundRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="FundRequest">
+        <PropertyRef Name="DepartmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
